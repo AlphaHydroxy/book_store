@@ -29,30 +29,55 @@ it('Inventory is empty', function(){
 })
 
 it('Inventory has a book', function(){
-  bookStore.addBook("book");
+  bookStore.addBook(book1);
   assert.strictEqual(bookStore.getInventory(), 1);
 })
 
-it('add to store balance', function(){
-  bookStore.addStoreBalance(9.99);
-  assert.strictEqual(bookStore.getStoreBalance(), 209.99);
+xit('List inventory', function(){
+  bookStore.addBook(book1);
+  bookStore.addBook(book2);
+  bookStore.addBook(book3);
+  assert.strictEqual(bookStore.listInventory(), "John Steinbeck, The Grapes of Wrath, Historical Fiction, 7.99");
 })
 
-it('subtract from store balance', function(){
-  bookStore.subtractStoreBalance(3.99);
-  assert.strictEqual(bookStore.getStoreBalance(), 196.01);
+it('Add to store balance', function(){
+  bookStore.addStoreBalance(book1);
+  assert.strictEqual(bookStore.getStoreBalance(), 207.99);
 })
 
-it('should be able to return value of inventory', function(){
+it('Subtract from store balance', function(){
+  bookStore.subtractStoreBalance(book1);
+  assert.strictEqual(bookStore.getStoreBalance(), 192.01);
+})
+
+it('Should be able to return value of inventory', function(){
   bookStore.addBook(book1);
   bookStore.addBook(book2);
   bookStore.addBook(book3);
   assert.strictEqual(bookStore.getInventoryTotal(), 26.97);
 })
 
-it('sell book and update store balance', function(){
+it('Sell book and update store balance', function(){
   bookStore.addBook(book1);
   assert.strictEqual(bookStore.sellBook(book1), 192.01);
+})
+
+it('Bookstores balance and inventory situation', function(){
+  assert.strictEqual(bookStore.getStoreBalance(), 200);
+  assert.strictEqual(bookStore.getInventory(), 0);
+  assert.strictEqual(bookStore.getInventoryTotal(), 0);
+  bookStore.addBook(book2);
+  bookStore.addBook(book3);
+  bookStore.addStoreBalance(book2);
+  bookStore.addStoreBalance(book3);
+  assert.strictEqual(bookStore.getStoreBalance(), 218.98);
+  assert.strictEqual(bookStore.getInventory(), 2);
+  assert.strictEqual(bookStore.getInventoryTotal(), 18.98);
+})
+
+it('Find book by genre', function(){
+  bookStore.addBook(book3);
+  assert.deepEqual(bookStore.findBookByGenre("Science Fiction"), [book3]);
 })
 
 })

@@ -16,15 +16,15 @@ BookStore.prototype= {
   },
 
   getStoreBalance: function(){
-    return this.storeBalance;
+    return _.round(this.storeBalance, 2);
   },
 
   addStoreBalance: function(book){
-    return this.storeBalance += book;
+    return this.storeBalance += book.price;
   },
 
   subtractStoreBalance: function(book){
-    return this.storeBalance -= book;
+    return this.storeBalance -= book.price;
   },
 
   getInventory: function(){
@@ -35,6 +35,12 @@ BookStore.prototype= {
     return _.sumBy(this.inventory, 'price');
   },
 
+  listInventory: function(){
+    this.inventory.forEach(function(item){
+      return item;  
+    })
+  },
+
   sellBook: function(book){
     _.remove(this.inventory, book);
     return this.storeBalance -= book.price;
@@ -42,7 +48,13 @@ BookStore.prototype= {
 
   addBook: function(book){
     return this.inventory.push(book);
+  },
+
+  findBookByGenre: function(genre){
+    return _.filter(this.inventory, 'genre');
   }
 }
 
 module.exports = BookStore;
+
+

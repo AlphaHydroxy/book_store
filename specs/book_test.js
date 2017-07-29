@@ -31,8 +31,4 @@ it('get book details', function(){
   assert.strictEqual(book2.getBookDetails(), "F.Scott Fitzgerald, The Great Gatsby, Romance, 8.99");
 })
 
-xit('list book details', function(){
-  assert.strictEqual(book1.listBookDetails(), 'John Steinbeck, The Grapes of Wrath, Historical Fiction, 7.99');
-})
-
 })
