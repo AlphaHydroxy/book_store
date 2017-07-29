@@ -11,7 +11,8 @@ describe('BookWorm', function(){
   var bookWorm;
 
 beforeEach(function(){
-  bookWorm = new BookWorm(30);
+  bookWorm = new BookWorm("Jia", 30);
+  bookWorm2 = new BookWorm("Rocky", 45);
 });
 
 it('book worm should have 30 pounds', function(){
@@ -60,8 +61,10 @@ it('The BookWorm should be able to sort their books by value. (ascending or desc
   assert.deepEqual(bookWorm.sortBooksByPriceAscending(), [book1, book2, book3]);
 })
 
-xit('The BookWorm should be able to compare the value of their collection with another BookWorm', function(){
-
+it('The BookWorm should be able to compare the value of their collection with another BookWorm', function(){
+  bookWorm.buyBook(book1);
+  bookWorm2.buyBook(book3);
+  assert.strictEqual(bookWorm.compareValueOfCollection(), "Rocky\'s book collection holds the highest value!");
 })
 
 })

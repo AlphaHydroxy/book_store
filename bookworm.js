@@ -48,6 +48,10 @@ BookWorm.prototype = {
 
   sortBooksByPriceAscending: function(){
     return _.sortBy(this.bookCollection, ['price']);
+  },
+
+  compareValueOfCollection: function(){
+    this.bookCollection
   }
 }
 
