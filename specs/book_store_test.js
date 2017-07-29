@@ -3,9 +3,9 @@ var BookStore = require('../bookstore.js');
 var Book = require('../book.js');
 // npm init | npm install --save -dev mocha | npm install --save lodash
 describe('BookStore', function(){
-  book1 = new Book("John Steinbeck", "The Grapes of Wrath", "Historical Fiction", 7.99);
-  book2 = new Book("F.Scott Fitzgerald", "The Great Gatsby", "Romance", 8.99);
-  book3 = new Book("George Orwell", "Nineteen Eighty-Four", "Science Fiction", 9.99);
+  book1 = new Book("John Steinbeck", "The Grapes of Wrath", "Historical Fiction", 7.99, 632);
+  book2 = new Book("F.Scott Fitzgerald", "The Great Gatsby", "Romance", 8.99, 569);
+  book3 = new Book("George Orwell", "Nineteen Eighty-Four", "Science Fiction", 9.99, 845)
   var bookStore;
 
 beforeEach(function(){
@@ -33,11 +33,11 @@ it('Inventory has a book', function(){
   assert.strictEqual(bookStore.getInventory(), 1);
 })
 
-xit('List inventory', function(){
+it('List inventory', function(){
   bookStore.addBook(book1);
   bookStore.addBook(book2);
   bookStore.addBook(book3);
-  assert.strictEqual(bookStore.listInventory(), "John Steinbeck, The Grapes of Wrath, Historical Fiction, 7.99");
+  assert.deepEqual(bookStore.listInventory(), [book1, book2, book3]);
 })
 
 it('Add to store balance', function(){

@@ -1,8 +1,9 @@
-var Book = function(author, title, genre, price){
+var Book = function(author, title, genre, price, pages){
   this.author = author;
   this.title = title;
   this.genre = genre;
   this.price = price;
+  this.pages = pages;
 }
 
 Book.prototype= {
@@ -28,6 +29,10 @@ Book.prototype= {
 
   listBookDetails: function(book){
     return _.join(book, ', ');
+  },
+
+  getPageNumbers: function(){
+    return this.pages;
   }
 }
 

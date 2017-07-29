@@ -40,8 +40,15 @@ BookWorm.prototype = {
       }
     })
     return total;
-  }
+  },
 
+  findBiggestBook: function(){
+    return _.maxBy(this.bookCollection, 'pages');
+  },
+
+  sortBooksByPriceAscending: function(){
+    return _.sortBy(this.bookCollection, ['price']);
+  }
 }
 
 module.exports = BookWorm;

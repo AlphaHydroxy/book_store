@@ -5,9 +5,9 @@ describe('Book', function(){
   var book;
 
 beforeEach(function(){
-  book1 = new Book("John Steinbeck", "The Grapes of Wrath", "Historical Fiction", 7.99);
-  book2 = new Book("F.Scott Fitzgerald", "The Great Gatsby", "Romance", 8.99);
-  book3 = new Book("George Orwell", "Nineteen Eighty-Four", "Science Fiction", 9.99)
+  book1 = new Book("John Steinbeck", "The Grapes of Wrath", "Historical Fiction", 7.99, 632);
+  book2 = new Book("F.Scott Fitzgerald", "The Great Gatsby", "Romance", 8.99, 569);
+  book3 = new Book("George Orwell", "Nineteen Eighty-Four", "Science Fiction", 9.99, 845)
 });
 
 it('get Author', function(){
@@ -28,6 +28,10 @@ it('get Price', function(){
 
 it('get book details', function(){
   assert.strictEqual(book2.getBookDetails(), "F.Scott Fitzgerald, The Great Gatsby, Romance, 8.99");
+})
+
+it('get number of pages', function(){
+  assert.strictEqual(book1.getPageNumbers(), 632);
 })
 
 })

@@ -5,9 +5,9 @@ var BookWorm = require('../bookworm.js');
 
 describe('BookWorm', function(){
 
-  book1 = new Book("John Steinbeck", "The Grapes of Wrath", "Historical Fiction", 7.99);
-  book2 = new Book("F.Scott Fitzgerald", "The Great Gatsby", "Romance", 8.99);
-  book3 = new Book("George Orwell", "Nineteen Eighty-Four", "Science Fiction", 9.99);
+  book1 = new Book("John Steinbeck", "The Grapes of Wrath", "Historical Fiction", 7.99, 632);
+  book2 = new Book("F.Scott Fitzgerald", "The Great Gatsby", "Romance", 8.99, 569);
+  book3 = new Book("George Orwell", "Nineteen Eighty-Four", "Science Fiction", 9.99, 845)
   var bookWorm;
 
 beforeEach(function(){
@@ -46,19 +46,21 @@ it('The BookWorm should be able to view the total value of all books of a given 
   assert.strictEqual(bookWorm.totalByGenre('Romance'), 17.98);
 })
 
-xit('The BookWorm should be able to view their longest book.', function(){
-
+it('The BookWorm should be able to view their longest book.', function(){
+  bookWorm.buyBook(book1);
+  bookWorm.buyBook(book2);
+  bookWorm.buyBook(book3);
+  assert.strictEqual(bookWorm.findBiggestBook(), book3);
 })
 
-xit('The BookWorm should be able to sort their books by value. (ascending or descending)', function(){
-
+it('The BookWorm should be able to sort their books by value. (ascending or descending)', function(){
+  bookWorm.buyBook(book3);
+  bookWorm.buyBook(book2);
+  bookWorm.buyBook(book1);
+  assert.deepEqual(bookWorm.sortBooksByPriceAscending(), [book1, book2, book3]);
 })
 
 xit('The BookWorm should be able to compare the value of their collection with another BookWorm', function(){
-
-})
-
-xit('', function(){
 
 })
 

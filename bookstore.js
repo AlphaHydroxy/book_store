@@ -36,7 +36,7 @@ BookStore.prototype= {
   },
 
   listInventory: function(){
-    this.inventory.forEach(function(item){
+    return _.forEach(this.inventory, function(item){
       return item;  
     })
   },
