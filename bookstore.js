@@ -1,3 +1,4 @@
+var _ = require("lodash");
 var BookStore = function(storeName, storeLocation, storeBalance){
   this.storeName = storeName;
   this.storeLocation = storeLocation;
@@ -18,8 +19,25 @@ BookStore.prototype= {
     return this.storeBalance;
   },
 
+  addStoreBalance: function(book){
+    return this.storeBalance += book;
+  },
+
+  subtractStoreBalance: function(book){
+    return this.storeBalance -= book;
+  },
+
   getInventory: function(){
     return this.inventory.length;
+  },
+
+  getInventoryTotal: function(){
+    return _.sumBy(this.inventory, 'price');
+  },
+
+  sellBook: function(book){
+    _.remove(this.inventory, book);
+    return this.storeBalance -= book.price;
   },
 
   addBook: function(book){

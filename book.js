@@ -20,6 +20,14 @@ Book.prototype= {
 
   getPrice: function(){
     return this.price;
+  },
+
+  getBookDetails: function(){
+    return this.author + ", " + this.title + ", " + this.genre + ", " + this.price;
+  },
+
+  listBookDetails: function(book){
+    return _.join(book, ', ');
   }
 }
 
