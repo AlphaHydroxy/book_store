@@ -1,6 +1,5 @@
 var assert = require('assert');
 var Book = require('../book.js');
-// npm init --save -dev mocha
 describe('Book', function(){
 
   var book;
