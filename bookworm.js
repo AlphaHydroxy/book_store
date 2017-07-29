@@ -32,9 +32,15 @@ BookWorm.prototype = {
     return _.sumBy(this.bookCollection, 'price');
   },
 
-  totalByGenre: function(){
-    var totalPriceGenre = _.filter(this.bookCollection,)
-  },
+  totalByGenre: function(genre){
+    var total = 0;
+    this.bookCollection.forEach(function(book){
+      if (book.genre === genre){
+        total += book.price;
+      }
+    })
+    return total;
+  }
 
 }
 

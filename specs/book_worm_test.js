@@ -41,8 +41,9 @@ it('The BookWorm should be able to view the total value of their collection', fu
 
 it('The BookWorm should be able to view the total value of all books of a given Genre', function(){
   bookWorm.buyBook(book2);
+  bookWorm.buyBook(book2);
   bookWorm.buyBook(book3);
-  assert.strictEqual(bookWork.totalByGenre('Romance'), 18.98);
+  assert.strictEqual(bookWorm.totalByGenre('Romance'), 17.98);
 })
 
 xit('The BookWorm should be able to view their longest book.', function(){
