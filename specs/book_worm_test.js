@@ -29,7 +29,7 @@ it('Selling book increases book worms cash', function(){
 })
 
 it('The BookWorm shouldnt be able to buy a Book if they cant afford it.', function(){
-  bookWorm = new BookWorm(5);
+  bookWorm = new BookWorm("Jia", 5);
   assert.strictEqual(bookWorm.cantAffordBook(book1), "Sorry, you don't have enough money to buy this book");
 })
 
@@ -64,7 +64,8 @@ it('The BookWorm should be able to sort their books by value. (ascending or desc
 it('The BookWorm should be able to compare the value of their collection with another BookWorm', function(){
   bookWorm.buyBook(book1);
   bookWorm2.buyBook(book3);
-  assert.strictEqual(bookWorm.compareValueOfCollection(), "Rocky\'s book collection holds the highest value!");
+  assert.strictEqual(bookWorm.compareValueOfCollection(bookWorm2
+    ), "Rockys book collection holds the highest value!");
 })
 
 })

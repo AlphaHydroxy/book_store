@@ -1,5 +1,6 @@
 var _ = require("lodash");
-var BookWorm = function(money){
+var BookWorm = function(name, money){
+  this.name = name;
   this.money = money;
   this.bookCollection = [];
 }
@@ -50,9 +51,18 @@ BookWorm.prototype = {
     return _.sortBy(this.bookCollection, ['price']);
   },
 
-  compareValueOfCollection: function(){
-    this.bookCollection
+  compareValueOfCollection: function(bwTwo){
+    if(this.totalValueOfBookCollection() > bookWorm2.totalValueOfBookCollection()){
+      return bookWorm.name + "s book collection holds the highest value!";
+    } else {
+      return bookWorm2.name + "s book collection holds the highest value!";
+    }
+    }
   }
-}
 
 module.exports = BookWorm;
+
+
+
+
+
